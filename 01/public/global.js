@@ -9,6 +9,7 @@ req.addEventListener("loadstart", function(){
 
 req.addEventListener("load", function(){
   // Your code for Exercise 1 goes here.
+  alert(this.response)
 });
 
 req.send();
