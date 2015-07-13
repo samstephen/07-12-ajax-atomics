@@ -9,7 +9,16 @@ req.addEventListener("loadstart", function(){
 
 req.addEventListener("load", function(){
   // Your code for Exercise 1 goes here.
-  alert(this.response)
+
+  // If the response received is "yes", then alert("Yay!").
+  if (this.response == "yes") {
+    alert("Yay!");
+  }
+  // Otherwise alert("Aw, shucks!").
+  else {
+    alert("Aw, shucks!");
+  }
+
 });
 
 req.send();
