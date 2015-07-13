@@ -1,3 +1,40 @@
 <h1>AJAX Atomics - 01</h1>
 
 <script type="text/javascript" src="/global.js"></script>
+
+
+
+<div>
+  <article>
+    <h4>Why are you able to make requests to <strong>/info1</strong> and <strong>/info2</strong> even though there are no route handlers for those paths defined in <strong>app.rb</strong>?</h4>
+
+    <code>var req = new XMLHttpRequest();</code>
+    <p>First, we declare a variable with a XMLHttpRequest object.</p>
+
+
+    <code>req.open("get", "/info2");</code>
+
+    <p>Using the open() method of the XHR object, you can send a request to a server. <strong>open(method,url)</strong> - Specifies the type of request, and the location of the file on the server.</p>
+
+    <p>Because the JavaScript method handles the request, Sinatra won't handle the request. open() will go to the public folder to <em>get</em> the url of the request <em>/info1</em> or <em>/info2</em>.</p>
+
+
+
+    <h4>Why is the XHR object's request path **/info1** instead of **/public/info1**?</h4>
+
+    <p>The location of the info2 on the server is in the public directory - which sinatra specifies as the "root". This means we can get files by just doing a "/info2" and not "/public/info2"</p>
+
+
+
+    <h4>Within the `addEventListener` function, what does `this` represent?</h4>
+
+    <code>req.addEventListener("load", function(){</br>
+    if (this.response == "yes") {</br>
+    alert("Yay!");</br>
+    } else {</br>
+    alert("Aw, shucks!");</br>
+    }</br>
+    });</code>
+
+
+    <p>The value of `this` is an element object that the Event is being added to. The XHR object is what `this` is referring to.</p>
